@@ -1,0 +1,64 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-success text-white py-3">
+                    <h3 class="mb-0 fw-bold">Add a New Book</h3>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/book" method="POST" class="needs-validation" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" for="title">Title</label>
+                            <input class="form-control bg-light border-0" type="text" id="title" name="book[title]" required>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Title is required.</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold" for="author">Author</label>
+                                <input class="form-control bg-light border-0" type="text" id="author" name="book[author]" required>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Author is required.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold" for="genre">Genre</label>
+                                <input class="form-control bg-light border-0" type="text" id="genre" name="book[genre]" required>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Genre is required.</div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold" for="publishedDate">Published Date</label>
+                                <input class="form-control bg-light border-0" type="date" id="publishedDate" name="book[publishedDate]" required>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Published Date is required.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold" for="rating">Rating (1-5)</label>
+                                <input class="form-control bg-light border-0" type="number" id="rating" name="book[rating]" min="1" max="5" required>
+                                <div class="valid-feedback">Looks good!</div>
+                                <div class="invalid-feedback">Rating must be between 1 and 5.</div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold" for="review">Review</label>
+                            <textarea class="form-control bg-light border-0" id="review" name="book[review]" rows="4" required></textarea>
+                            <div class="valid-feedback">Looks good!</div>
+                            <div class="invalid-feedback">Review is required.</div>
+                        </div>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a href="/books" class="btn btn-light border-0 me-md-2">Cancel</a>
+                            <button class="btn btn-success fw-bold px-5" type="submit">Add Book</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,37 @@
+<%- include('../partials/header') %>
+<%- include('../partials/navbar') %>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="fw-bold">My Books</h1>
+        <a href="/book/new" class="btn btn-primary btn-lg shadow-sm">Add New Book</a>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <% for(let book of books) { %>
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 book-card">
+                    <div class="card-body">
+                        <h4 class="card-title fw-bold text-primary"><%= book.title %></h4>
+                        <h6 class="card-subtitle mb-3 text-muted">by <%= book.author %></h6>
+                        <span class="badge bg-info text-dark mb-2"><%= book.genre %></span>
+                        <p class="card-text">
+                            <strong>Rating:</strong>
+                            <span class="text-warning">
+                                <% for(let i=0; i<book.rating; i++) { %>★<% } %>
+                                <% for(let i=book.rating; i<5; i++) { %>☆<% } %>
+                            </span>
+                        </p>
+                        <p class="card-text text-truncate text-muted"><%= book.review %></p>
+                    </div>
+                    <div class="card-footer bg-white border-0 d-flex justify-content-between align-items-center pb-3 px-3">
+                        <small class="text-muted">Added by <%= book.createdBy.username %></small>
+                        <a href="/books/<%= book._id %>" class="btn btn-outline-primary btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
